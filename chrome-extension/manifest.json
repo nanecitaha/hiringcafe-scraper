@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "HiringCafe Job Scraper",
+  "version": "1.0.0",
+  "description": "Saves HiringCafe job listings to your local CSV through tech_stack_server.py.",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "HiringCafe Job Scraper",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://hiringcafe.com/*"],
+      "js": ["scraper.js"],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://hiringcafe.com/*"],
+      "js": ["bridge.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

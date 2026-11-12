@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 300px; margin: 0; padding: 14px 16px 16px; font: 13px/1.4 system-ui, -apple-system, sans-serif; color: #1f2937; }
+    h1 { font-size: 15px; margin: 0 0 12px; }
+    fieldset { border: none; padding: 0; margin: 0 0 12px; }
+    label { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    input[type=number] { width: 70px; padding: 3px 6px; }
+    input[type=text] { width: 100%; box-sizing: border-box; padding: 4px 6px; }
+    .row { display: flex; gap: 8px; margin: 12px 0; }
+    button { flex: 1; padding: 8px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; color: #fff; }
+    #start { background: #db2777; }
+    #stop { background: #dc2626; }
+    button:disabled { background: #d1d5db; cursor: default; }
+    #status { background: #f3f4f6; border-radius: 6px; padding: 8px 10px; min-height: 36px; }
+    #counts { font-weight: 600; margin-bottom: 4px; }
+    #lastJob { color: #6b7280; font-size: 12px; margin-top: 4px; }
+    details { margin-top: 12px; color: #6b7280; }
+    summary { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>HiringCafe Job Scraper</h1>
+
+  <fieldset>
+    <label><input type="radio" name="mode" value="fixed" checked> Save <input type="number" id="count" min="1" step="1" value="50"> new jobs</label>
+    <label><input type="radio" name="mode" value="until"> Keep going until I click Stop</label>
+  </fieldset>
+
+  <div class="row">
+    <button id="start">Start</button>
+    <button id="stop" disabled>Stop</button>
+  </div>
+
+  <div id="status">
+    <div id="counts"></div>
+    <div id="message">Checking this tab…</div>
+    <div id="lastJob"></div>
+  </div>
+
+  <details>
+    <summary>Server</summary>
+    <p><input type="text" id="server" spellcheck="false"></p>
+  </details>
+
+  <script src="popup.js"></script>
+</body>
+</html>
